@@ -1,4 +1,4 @@
-# terraform-azure-rbac
+# Rbac
 
 This terraform module simplifies the process of creating and managing role assignments on azure resources offering a flexible and powerful solution for managing azure role based access control (rbac) through code.
 
@@ -15,9 +15,9 @@ A last key goal is to separate logic from configuration in the module, thereby e
 ## Features
 
 - offers support for creating role assignment (role based access control) on Azure resources.
-- multiple roles and scopes can be defined per principal type.  
+- multiple roles and scopes can be defined per principal type.
 - data lookup of group or service-principal (app registration) based on display name in Entra ID.
-- data lookup of user based on upn in Entra ID. 
+- data lookup of user based on upn in Entra ID.
 
 ## Requirements
 
@@ -72,10 +72,10 @@ Each of these tests contributes to the robustness and resilience of the module. 
 
 ## Notes
 
-This module does not create or manages the actual user, group or service-principal in Entra ID. 
+This module does not create or manages the actual user, group or service-principal in Entra ID.
 It looks up the object ID of the service principal type based on display_name (servicePrincipal, application or Group type) or UPN (User type).
-To lookup these values in Entra ID, specific API permissions are needed for the SP running Terraform, see also requirements. 
-If these API permissions cannot be granted for whatever reason, alternatively the object_id can be directly used instead. 
+To lookup these values in Entra ID, specific API permissions are needed for the SP running Terraform, see also requirements.
+If these API permissions cannot be granted for whatever reason, alternatively the object_id can be directly used instead.
 
 ## Authors
 

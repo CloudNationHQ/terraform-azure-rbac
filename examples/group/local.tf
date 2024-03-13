@@ -1,5 +1,5 @@
 locals {
-  role_assignments_config = {
+  role_assignments = {
     "Development" = {
       display_name = "Development"
       type         = "Group"

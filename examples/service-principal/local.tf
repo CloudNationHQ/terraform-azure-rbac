@@ -1,5 +1,5 @@
 locals {
-  role_assignments_config = {
+  role_assignments = {
     "TerraformDeploy" = {
       display_name = "TerraformDeploy"
       type         = "ServicePrincipal"

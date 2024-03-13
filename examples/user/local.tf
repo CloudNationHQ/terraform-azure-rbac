@@ -1,5 +1,5 @@
 locals {
-  role_assignments_config = {
+  role_assignments = {
     "eddyvera" = {
       upn  = "eddy.vera@eddytenant.onmicrosoft.com"
       type = "User"

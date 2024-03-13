@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/cloudnationhq/terraform-azure-psql/shared"
+	"github.com/cloudnationhq/terraform-azure-rbac/shared"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
