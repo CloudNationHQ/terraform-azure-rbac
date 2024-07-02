@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.2.0...v0.3.0) (2024-07-02)
+
+
+### Features
+
+* add issue template ([#16](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/16)) ([2d0b7c5](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/2d0b7c5f106cc9f9d2215d1459d64724dceed77d))
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#15](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/15)) ([0306011](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/0306011be155f509263689052a0af0b5995b2ce0))
+* **deps:** bump github.com/hashicorp/go-getter ([#14](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/14)) ([1d350e3](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/1d350e3ed6cb3476bf9ccf409a6d68fc986b4c8c))
+
 ## [0.2.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.1.0...v0.2.0) (2024-06-08)
 
 
