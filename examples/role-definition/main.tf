@@ -33,4 +33,5 @@ module "rbac" {
   version = "~> 0.1"
 
   role_assignments = local.role_assignments
+  role_definitions = local.role_definitions
 }

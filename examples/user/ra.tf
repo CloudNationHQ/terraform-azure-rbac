@@ -1,7 +1,7 @@
 locals {
   role_assignments = {
-    "eddyvera" = {
-      upn  = "eddy.vera@eddytenant.onmicrosoft.com"
+    "john doe" = {
+      upn  = "john.doe@contoso.onmicrosoft.com"
       type = "User"
       roles = {
         "Key Vault Secrets User" = {
