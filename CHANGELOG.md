@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.4.0...v0.5.0) (2024-08-22)
+
+
+### Features
+
+* added support for custom role definitions ([#23](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/23)) ([2ced7c2](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/2ced7c2d0f9fce483d93432ea65bad6ebeb5ba6e))
+
 ## [0.4.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.3.0...v0.4.0) (2024-08-22)
 
 
