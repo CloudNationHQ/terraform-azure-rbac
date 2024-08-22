@@ -19,12 +19,12 @@ module "rg" {
 
 module "storage" {
   source  = "cloudnationhq/sa/azure"
-  version = "~> 0.1"
+  version = "~> 1.0"
 
   storage = {
-    name          = module.naming.storage_account.name
-    location      = module.rg.groups.main.location
-    resourcegroup = module.rg.groups.main.name
+    name           = module.naming.storage_account.name
+    location       = module.rg.groups.main.location
+    resource_group = module.rg.groups.main.name
   }
 }
 

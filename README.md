@@ -15,9 +15,11 @@ A last key goal is to separate logic from configuration in the module, thereby e
 ## Features
 
 - offers support for creating role assignment (role based access control) on Azure resources.
+- support for creating new custom role definitions
 - multiple roles and scopes can be defined per principal type.
 - data lookup of group or service-principal (app registration) based on display name in Entra ID.
 - data lookup of user based on upn in Entra ID.
+- data lookup for existing custom role definitions and assigning these. 
 
 ## Requirements
 
@@ -40,6 +42,8 @@ A last key goal is to separate logic from configuration in the module, thereby e
 | Name | Type |
 | :-- | :-- |
 | [azurerm_role_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_definition](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
+| [azurerm_role_definition](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) | data source |
 | [azuread_service_principal](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
 | [azuread_user](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) | data source |
 | [azuread_group](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
@@ -49,12 +53,14 @@ A last key goal is to separate logic from configuration in the module, thereby e
 | Name | Description | Type | Required |
 | :-- | :-- | :-- | :-- |
 | `role_assignments` | contains all the role assignments configuration | object | yes |
+| `role_definitions` | contains all the role definitions configuration for custom roles | object | yes |
 
 ## Outputs
 
 | Name | Description |
 | :-- | :-- |
 | `role_assignments` | role assignment details |
+| `role_definitions` | (custom) role definitions details |
 
 ## Testing
 
