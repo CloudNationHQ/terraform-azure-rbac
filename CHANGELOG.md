@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.3.0...v0.4.0) (2024-08-22)
+
+
+### Features
+
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#21](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/21)) ([dbb5605](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/dbb5605bfb3caadb07d78afd10380e91aee637e6))
+* update contribution docs ([#18](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/18)) ([afe9fe9](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/afe9fe9fbefbfd98119528d9fb6df2afab273cb4))
+
 ## [0.3.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.2.0...v0.3.0) (2024-07-02)
 
 
