@@ -12,6 +12,16 @@ A primary goal is to utilize keys and values in the object that correspond to th
 
 A last key goal is to separate logic from configuration in the module, thereby enhancing its scalability, ease of customization, and manageability.
 
+## Non-Goals
+
+These modules are not intended to be complete, ready-to-use solutions; they are designed as components for creating your own patterns.
+
+They are not tailored for a single use case but are meant to be versatile and applicable to a range of scenarios.
+
+Security standardization is applied at the pattern level, while the modules include default values based on best practices but do not enforce specific security standards.
+
+End-to-end testing is not conducted on these modules, as they are individual components and do not undergo the extensive testing reserved for complete patterns or solutions.
+
 ## Features
 
 - offers support for creating role assignment (role based access control) on Azure resources.
@@ -19,7 +29,7 @@ A last key goal is to separate logic from configuration in the module, thereby e
 - multiple roles and scopes can be defined per principal type.
 - data lookup of group or service-principal (app registration) based on display name in Entra ID.
 - data lookup of user based on upn in Entra ID.
-- data lookup for existing custom role definitions and assigning these. 
+- data lookup for existing custom role definitions and assigning these.
 
 ## Requirements
 
@@ -87,9 +97,15 @@ If these API permissions cannot be granted for whatever reason, alternatively th
 
 Module is maintained by [these awesome contributors](https://github.com/cloudnationhq/terraform-azure-rbac/graphs/contributors).
 
+## Contributing
+
+We welcome contributions from the community! Whether it's reporting a bug, suggesting a new feature, or submitting a pull request, your input is highly valued.
+
+For more information, please see our contribution [guidelines](./CONTRIBUTING.md).
+
 ## License
 
-MIT Licensed. See [LICENSE](https://github.com/cloudnationhq/terraform-azure-rbac/blob/main/LICENSE) for full details.
+MIT Licensed. See [LICENSE](./LICENSE) for full details.
 
 ## References
 
