@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.6.0...v0.6.1) (2024-08-28)
+
+
+### Bug Fixes
+
+* fix capital markdown extensions ([#27](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/27)) ([98274c1](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/98274c18822661362dfa13b68c1b1ca6f578380d))
+
 ## [0.6.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.5.0...v0.6.0) (2024-08-28)
 
 
