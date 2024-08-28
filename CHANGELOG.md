@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.5.0...v0.6.0) (2024-08-28)
+
+
+### Features
+
+* update documentation ([#25](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/25)) ([44c5366](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/44c5366f2a906fd97c00b3dc40e5ae0ad58d8fae))
+
 ## [0.5.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.4.0...v0.5.0) (2024-08-22)
 
 
