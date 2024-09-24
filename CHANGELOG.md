@@ -5,11 +5,15 @@
 
 ### ⚠ BREAKING CHANGES
 
-* * Version 4 of the azurerm provider includes breaking changes.
+* Version 4 of the azurerm provider includes breaking changes.
 
 ### Features
 
 * upgrade azurerm provder to v4 ([#30](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/30)) ([d1b4ff1](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/d1b4ff12757ba6aa5c25ad27d234965286fc9407))
+
+### Upgrade from v0.6.1 to v2.0.0:
+
+- Update module reference to: `version = "~> 2.0"`
 
 ## [0.6.1](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.6.0...v0.6.1) (2024-08-28)
 
