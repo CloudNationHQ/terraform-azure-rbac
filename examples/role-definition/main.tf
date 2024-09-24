@@ -7,19 +7,19 @@ module "naming" {
 
 module "rg" {
   source  = "cloudnationhq/rg/azure"
-  version = "~> 0.2"
+  version = "~> 2.0"
 
   groups = {
     main = {
-      name   = module.naming.resource_group.name
-      region = "westeurope"
+      name     = module.naming.resource_group.name
+      location = "westeurope"
     }
   }
 }
 
 module "storage" {
   source  = "cloudnationhq/sa/azure"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   storage = {
     name           = module.naming.storage_account.name
@@ -30,7 +30,7 @@ module "storage" {
 
 module "rbac" {
   source  = "cloudnationhq/rbac/azure"
-  version = "~> 0.1"
+  version = "~> 1.0"
 
   role_assignments = local.role_assignments
   role_definitions = local.role_definitions
