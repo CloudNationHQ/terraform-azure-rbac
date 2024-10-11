@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v1.0.0...v1.1.0) (2024-10-11)
+
+
+### Features
+
+* auto generated docs and refine makefile ([#33](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/33)) ([83852d2](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/83852d2061d496ce0e6eec57b991d6a241216fed))
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#32](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/32)) ([92df37e](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/92df37ee1b8b7ece811059eed3ecab5da4546121))
+
 ## [1.0.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v0.6.1...v1.0.0) (2024-09-24)
 
 
