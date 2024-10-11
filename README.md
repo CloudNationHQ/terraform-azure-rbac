@@ -31,46 +31,48 @@ End-to-end testing is not conducted on these modules, as they are individual com
 - data lookup of user based on upn in Entra ID.
 - data lookup for existing custom role definitions and assigning these.
 
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.95 |
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.47 |
-| <a name="requirement_api_permissions"></a> [Entra ID api permissions](#requirement\_api_permissions_) | Directory.Read.All or Group.Read.All, Application.Read.All and User.Read.All  |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.95 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 2.47 |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~> 2.47 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
 
 ## Resources
 
 | Name | Type |
-| :-- | :-- |
-| [azurerm_role_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_definition](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
-| [azurerm_role_definition](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) | data source |
-| [azuread_service_principal](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
-| [azuread_user](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) | data source |
-| [azuread_group](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
+|------|------|
+| [azurerm_role_assignment.role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.role_object_id](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_definition.custom](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
+| [azuread_group.group](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
+| [azuread_service_principal.sp](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
+| [azuread_user.user](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) | data source |
+| [azurerm_role_definition.custom](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) | data source |
 
 ## Inputs
 
-| Name | Description | Type | Required |
-| :-- | :-- | :-- | :-- |
-| `role_assignments` | contains all the role assignments configuration | object | yes |
-| `role_definitions` | contains all the role definitions configuration for custom roles | object | yes |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_role_assignments"></a> [role\_assignments](#input\_role\_assignments) | n/a | `any` | n/a | yes |
+| <a name="input_role_definitions"></a> [role\_definitions](#input\_role\_definitions) | n/a | `any` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
-| :-- | :-- |
-| `role_assignments` | role assignment details |
-| `role_definitions` | (custom) role definitions details |
+|------|-------------|
+| <a name="output_role_assignments"></a> [role\_assignments](#output\_role\_assignments) | n/a |
+| <a name="output_role_definitions"></a> [role\_definitions](#output\_role\_definitions) | n/a |
+<!-- END_TF_DOCS -->
 
 ## Testing
 
