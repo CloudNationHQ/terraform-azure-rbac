@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v1.1.0...v2.0.0) (2024-10-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade azuread provider to v3 ([#35](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/35))
+
+### Features
+
+* upgrade azuread provider to v3 ([#35](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/35)) ([3bfdabd](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/3bfdabdca2f2f5b2f1422a0cc6f87d16e4b1b733))
+
 ## [1.1.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v1.0.0...v1.1.0) (2024-10-11)
 
 
