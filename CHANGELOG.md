@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.0.0...v2.1.0) (2024-11-11)
+
+
+### Features
+
+* enhance testing with sequential, parallel modes and flags for exceptions and skip-destroy ([#37](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/37)) ([a0c19b0](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/a0c19b03f0f7de5c17eb63d10d9fa4cfedaea68c))
+
 ## [2.0.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v1.1.0...v2.0.0) (2024-10-22)
 
 
