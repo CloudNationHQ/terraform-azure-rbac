@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.1.0...v2.2.0) (2025-01-21)
+
+
+### Features
+
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#40](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/40)) ([2940ee3](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/2940ee3df7d7e2c07edf05100e51c62c5b02d93f))
+* **deps:** bump the go_modules group in /tests with 2 updates ([#43](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/43)) ([33013f0](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/33013f0b0271917deba2ca90c400f99877369dad))
+* improve testing ([#41](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/41)) ([ab8774a](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/ab8774afa5792894a13d8e7af81e42b49408f248))
+
 ## [2.1.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.0.0...v2.1.0) (2024-11-11)
 
 
