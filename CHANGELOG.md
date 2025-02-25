@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.2.0...v2.3.0) (2025-02-25)
+
+
+### Features
+
+* add some missing properties ([#45](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/45)) ([715c118](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/715c118b0fabea3f554bc9b1064f66ebd5ef9eb2))
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#44](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/44)) ([ffbd6da](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/ffbd6daf9acd8d1ce931983940560455ec6a7690))
+
 ## [2.2.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.1.0...v2.2.0) (2025-01-21)
 
 
