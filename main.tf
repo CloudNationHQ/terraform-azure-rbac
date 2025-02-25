@@ -5,7 +5,12 @@ data "azuread_group" "group" {
     gr.key => gr if gr.type == "Group" && gr.object_id == null
   }
 
-  display_name = each.value.display_name
+  display_name               = each.value.display_name
+  include_transitive_members = try(each.value.include_transitive_members, false)
+  mail_enabled               = try(each.value.mail_enabled, null)
+  mail_nickname              = try(each.value.mail_nickname, null)
+  security_enabled           = try(each.value.security_enabled, null)
+  object_id                  = try(each.value.object_id, null)
 }
 
 data "azuread_service_principal" "sp" {
@@ -15,6 +20,8 @@ data "azuread_service_principal" "sp" {
   }
 
   display_name = each.value.display_name
+  client_id    = try(each.value.client_id, null)
+  object_id    = try(each.value.object_id, null)
 }
 
 data "azuread_user" "user" {
@@ -24,6 +31,10 @@ data "azuread_user" "user" {
   }
 
   user_principal_name = each.value.upn
+  object_id           = try(each.value.object_id, null)
+  mail_nickname       = try(each.value.mail_nickname, null)
+  mail                = try(each.value.mail, null)
+  employee_id         = try(each.value.employee_id, null)
 }
 
 data "azurerm_role_definition" "custom" {
@@ -32,9 +43,9 @@ data "azurerm_role_definition" "custom" {
     rd.role => rd if rd.existing_role_definition == true
   }
 
-  name  = each.value.role
-  scope = each.value.scope
-
+  name               = each.value.role
+  scope              = each.value.scope
+  role_definition_id = try(each.value.role_definition_id, null)
 }
 
 # role assignments
@@ -99,5 +110,4 @@ resource "azurerm_role_definition" "custom" {
       not_data_actions = try(permissions.value.not_data_actions, null)
     }
   }
-
 }
