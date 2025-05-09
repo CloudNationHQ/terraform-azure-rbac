@@ -16,7 +16,7 @@ data "azuread_group" "group" {
 data "azuread_service_principal" "sp" {
   for_each = {
     for sp in local.role_assignments :
-    sp.key => sp if sp.type == "ServicePrincipal" || sp.type == "Application" && sp.object_id == null
+    sp.key => sp if(sp.type == "ServicePrincipal" || sp.type == "Application") && sp.object_id == null
   }
 
   display_name = each.value.display_name
