@@ -53,7 +53,7 @@ resource "azurerm_role_assignment" "role" {
   for_each = {
     for ra in local.role_assignments :
     # ra.key => ra if ra.object_id == null
-    ra.key => ra if nonsensitive(ra.object_id) == null
+    ra.key => ra if nonsensitive(ra.object_id) != null
   }
 
   scope                                  = each.value.scope
@@ -74,7 +74,7 @@ resource "azurerm_role_assignment" "role_object_id" {
   for_each = {
     for ra in local.role_assignments :
     # ra.key => ra if ra.object_id != null
-    ra.key => ra if nonsensitive(ra.object_id) == null
+      ra.key => ra if nonsensitive(ra.object_id) != null
   }
 
   scope                                  = each.value.scope
