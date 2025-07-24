@@ -2,7 +2,7 @@
 data "azuread_group" "group" {
   for_each = {
     for gr in local.role_assignments :
-    gr.key => gr if gr.type == "Group" && gr.object_id == null
+    gr.key => gr if gr.type == "Group" && gr.display_name != null
   }
 
   display_name               = each.value.display_name
@@ -16,7 +16,7 @@ data "azuread_group" "group" {
 data "azuread_service_principal" "sp" {
   for_each = {
     for sp in local.role_assignments :
-    sp.key => sp if sp.type == "ServicePrincipal" || sp.type == "Application" && sp.object_id == null
+    sp.key => sp if (sp.type == "ServicePrincipal" || sp.type == "Application") && sp.display_name != null
   }
 
   display_name = each.value.display_name
@@ -27,7 +27,7 @@ data "azuread_service_principal" "sp" {
 data "azuread_user" "user" {
   for_each = {
     for user in local.role_assignments :
-    user.key => user if user.type == "User" && user.object_id == null
+    user.key => user if user.type == "User" && user.upn != null
   }
 
   user_principal_name = each.value.upn
@@ -52,7 +52,7 @@ data "azurerm_role_definition" "custom" {
 resource "azurerm_role_assignment" "role" {
   for_each = {
     for ra in local.role_assignments :
-    ra.key => ra if ra.object_id == null
+    ra.key => ra if ra.display_name != null || ra.upn != null
   }
 
   scope                                  = each.value.scope
@@ -72,7 +72,7 @@ resource "azurerm_role_assignment" "role" {
 resource "azurerm_role_assignment" "role_object_id" {
   for_each = {
     for ra in local.role_assignments :
-    ra.key => ra if ra.object_id != null
+    ra.key => ra if ra.display_name == null && ra.upn == null
   }
 
   scope                                  = each.value.scope
