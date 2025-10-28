@@ -30,48 +30,84 @@ End-to-end testing is not conducted on these modules, as they are individual com
 - data lookup of group or service-principal (app registration) based on display name in Entra ID.
 - data lookup of user based on upn in Entra ID.
 - data lookup for existing custom role definitions and assigning these.
+- optional provisioning of Azure PIM role management policies and eligible role assignments per role and scope, including group approvers resolved by display name.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.47 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0 |
+The following requirements are needed by this module:
+
+- <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (~> 1.0)
+
+- <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) (~> 3.0)
+
+- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 4.0)
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~> 2.47 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
+The following providers are used by this module:
+
+- <a name="provider_azuread"></a> [azuread](#provider\_azuread) (~> 3.0)
+
+- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 4.0)
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [azurerm_role_assignment.role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.role_object_id](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_definition.custom](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
-| [azuread_group.group](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
-| [azuread_service_principal.sp](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
-| [azuread_user.user](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) | data source |
-| [azurerm_role_definition.custom](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) | data source |
+The following resources are used by this module:
 
-## Inputs
+- [azurerm_pim_eligible_role_assignment.role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/pim_eligible_role_assignment) (resource)
+- [azurerm_role_assignment.role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) (resource)
+- [azurerm_role_assignment.role_object_id](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) (resource)
+- [azurerm_role_definition.custom](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) (resource)
+- [azurerm_role_management_policy.role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_management_policy) (resource)
+- [azuread_group.group](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) (data source)
+- [azuread_group.primary_approver](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) (data source)
+- [azuread_service_principal.sp](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) (data source)
+- [azuread_user.user](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) (data source)
+- [azurerm_role_definition.builtin](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) (data source)
+- [azurerm_role_definition.custom](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) (data source)
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_role_assignments"></a> [role\_assignments](#input\_role\_assignments) | n/a | `any` | n/a | yes |
-| <a name="input_role_definitions"></a> [role\_definitions](#input\_role\_definitions) | n/a | `any` | `{}` | no |
+## Required Inputs
+
+The following input variables are required:
+
+### <a name="input_role_assignments"></a> [role\_assignments](#input\_role\_assignments)
+
+Description: n/a
+
+Type: `any`
+
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
+### <a name="input_role_definitions"></a> [role\_definitions](#input\_role\_definitions)
+
+Description: n/a
+
+Type: `any`
+
+Default: `{}`
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_role_assignments"></a> [role\_assignments](#output\_role\_assignments) | n/a |
-| <a name="output_role_definitions"></a> [role\_definitions](#output\_role\_definitions) | n/a |
+The following outputs are exported:
+
+### <a name="output_pim_eligible_role_assignments"></a> [pim\_eligible\_role\_assignments](#output\_pim\_eligible\_role\_assignments)
+
+Description: n/a
+
+### <a name="output_role_assignments"></a> [role\_assignments](#output\_role\_assignments)
+
+Description: n/a
+
+### <a name="output_role_definitions"></a> [role\_definitions](#output\_role\_definitions)
+
+Description: n/a
+
+### <a name="output_role_management_policies"></a> [role\_management\_policies](#output\_role\_management\_policies)
+
+Description: n/a
 <!-- END_TF_DOCS -->
 
 ## Testing
