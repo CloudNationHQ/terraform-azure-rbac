@@ -17,12 +17,9 @@ module "rg" {
   }
 }
 
-resource "time_static" "assignment_start" {}
-
 module "rbac" {
-  # source  = "cloudnationhq/rbac/azure"
-  # version = "~> 2.0"
-  source = "../../"
+  source  = "cloudnationhq/rbac/azure"
+  version = "~> 2.0"
 
   role_assignments = local.role_assignments
 }

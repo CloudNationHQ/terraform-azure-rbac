@@ -1,7 +1,7 @@
 locals {
   role_assignments = {
     "john doe" = {
-      upn  = "janedoe@cloudnationdev.com"
+      upn  = "john.doe@contoso.onmicrosoft.com"
       type = "User"
       roles = {
         "Contributor" = {
@@ -21,7 +21,7 @@ locals {
                   approval_stage = {
                     primary_approver = [
                       {
-                        display_name = "test-group-jasper"
+                        display_name = "group-with-approvers"
                         type         = "Group"
                       }
                     ]
@@ -45,17 +45,16 @@ locals {
                 }
               }
               pim_eligible = {
-                # justification = "Enable PIM eligible contributor access"
-                # schedule = {
-                #   start_date_time = time_static.assignment_start.rfc3339
-                #   expiration = {
-                #     duration_hours = 8
-                #   }
-                # }
-                # ticket = {
-                #   number = "1"
-                #   system = "example ticket system"
-                # }
+                justification = "Enable PIM eligible contributor access"
+                schedule = {
+                  expiration = {
+                    duration_hours = 8
+                  }
+                }
+                ticket = {
+                  number = "1"
+                  system = "example ticket system"
+                }
               }
             }
           }
