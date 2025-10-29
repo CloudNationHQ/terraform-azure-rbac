@@ -29,7 +29,7 @@ module "storage" {
 }
 
 module "rbac" {
-  source  = "../../"
+  source = "../../"
 
   role_assignments = local.role_assignments
 }
