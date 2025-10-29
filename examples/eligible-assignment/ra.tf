@@ -21,7 +21,7 @@ locals {
                   approval_stage = {
                     primary_approver = [
                       {
-                        display_name = "group-with-approvers"
+                        display_name = "Approvers"
                         type         = "Group"
                       }
                     ]

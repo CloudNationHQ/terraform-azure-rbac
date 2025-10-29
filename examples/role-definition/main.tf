@@ -22,7 +22,7 @@ module "storage" {
   version = "~> 2.0"
 
   storage = {
-    name           = module.naming.storage_account.name
+    name           = module.naming.storage_account.name_unique
     location       = module.rg.groups.main.location
     resource_group = module.rg.groups.main.name
   }
