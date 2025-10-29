@@ -134,13 +134,15 @@ If these API permissions cannot be granted for whatever reason, alternatively th
 
 Module is maintained by [these awesome contributors](https://github.com/cloudnationhq/terraform-azure-rbac/graphs/contributors).
 
-## Contributing
+## Contributors
 
 We welcome contributions from the community! Whether it's reporting a bug, suggesting a new feature, or submitting a pull request, your input is highly valued.
 
-For more information, please see our contribution [guidelines](./CONTRIBUTING.md).
+For more information, please see our contribution [guidelines](./CONTRIBUTING.md). <br><br>
 
-## License
+<a href="https://github.com/cloudnationhq/terraform-azure-rbac/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=cloudnationhq/terraform-azure-rbac" />
+</a>
 
 MIT Licensed. See [LICENSE](./LICENSE) for full details.
 
