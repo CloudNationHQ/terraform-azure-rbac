@@ -29,7 +29,8 @@ module "storage" {
 }
 
 module "rbac" {
-  source = "../../"
+  source  = "cloudnationhq/rbac/azure"
+  version = "~> 2.0"
 
   role_assignments = local.role_assignments
 }
