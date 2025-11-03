@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.3.0...v2.3.1) (2025-07-24)
+
+
+### Bug Fixes
+
+* unknown values at runtime ([#52](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/52)) ([f56d6bf](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/f56d6bfd1fc689980232b9488bbc6ce4608f62ac))
+
 ## [2.3.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.2.0...v2.3.0) (2025-02-25)
 
 
