@@ -17,21 +17,9 @@ module "rg" {
   }
 }
 
-module "storage" {
-  source  = "cloudnationhq/sa/azure"
-  version = "~> 2.0"
-
-  storage = {
-    name           = module.naming.storage_account.name_unique
-    location       = module.rg.groups.main.location
-    resource_group = module.rg.groups.main.name
-  }
-}
-
 module "rbac" {
   source  = "cloudnationhq/rbac/azure"
   version = "~> 2.0"
 
   role_assignments = local.role_assignments
-  role_definitions = local.role_definitions
 }
