@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.0...v2.4.1) (2025-11-10)
+
+
+### Bug Fixes
+
+* all upn references ([47c4e56](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/47c4e56f71635b53c4e54a6c7979f6bd859431e9))
+
 ## [2.4.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.3.1...v2.4.0) (2025-11-03)
 
 
