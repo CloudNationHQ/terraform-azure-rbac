@@ -14,7 +14,7 @@ data "azuread_group" "group" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
