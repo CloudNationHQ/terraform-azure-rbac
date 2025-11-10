@@ -14,7 +14,7 @@ data "azuread_group" "group" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -88,7 +88,7 @@ data "azuread_service_principal" "sp" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -130,7 +130,7 @@ data "azuread_user" "user" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -174,7 +174,7 @@ data "azurerm_role_definition" "custom" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -216,7 +216,7 @@ data "azurerm_role_definition" "builtin" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -257,7 +257,7 @@ resource "azurerm_role_assignment" "role" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -308,7 +308,7 @@ resource "azurerm_role_assignment" "role_object_id" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -359,7 +359,7 @@ resource "azurerm_role_management_policy" "role" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -556,7 +556,7 @@ resource "azurerm_pim_eligible_role_assignment" "role" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
