@@ -237,8 +237,7 @@ data "azurerm_role_definition" "builtin" {
     if assignment.existing_role_definition == false && !contains(try(keys(var.role_definitions), []), assignment.role)
   }
 
-  name  = each.value.role
-  scope = each.value.scope
+  name = each.value.role
 }
 
 resource "azurerm_role_assignment" "role" {
