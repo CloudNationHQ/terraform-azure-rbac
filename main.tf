@@ -576,8 +576,29 @@ resource "azurerm_pim_eligible_role_assignment" "role" {
     if assignment.pim_eligible != null
   }
 
-  scope              = each.value.scope
-  role_definition_id = each.value.existing_role_definition == true ? data.azurerm_role_definition.custom[each.value.role].role_definition_id : contains(try(keys(var.role_definitions), []), each.value.role) ? azurerm_role_definition.custom[each.value.role].role_definition_id : data.azurerm_role_definition.builtin[each.key].role_definition_id
+  scope = each.value.scope
+  role_definition_id = (
+    each.value.existing_role_definition == true ?
+    (
+      # For existing role definitions
+      startswith(each.value.scope, "/providers/Microsoft.Management/managementGroups/") ?
+      data.azurerm_role_definition.custom[each.value.role].role_definition_id :
+      "${regex("^/subscriptions/[^/]+", each.value.scope)}${data.azurerm_role_definition.custom[each.value.role].role_definition_id}"
+    ) :
+    contains(try(keys(var.role_definitions), []), each.value.role) ?
+    (
+      # For custom role definitions
+      startswith(each.value.scope, "/providers/Microsoft.Management/managementGroups/") ?
+      azurerm_role_definition.custom[each.value.role].role_definition_id :
+      "${regex("^/subscriptions/[^/]+", each.value.scope)}${azurerm_role_definition.custom[each.value.role].role_definition_id}"
+    ) :
+    (
+      # For builtin role definitions
+      startswith(each.value.scope, "/providers/Microsoft.Management/managementGroups/") ?
+      data.azurerm_role_definition.builtin[each.key].role_definition_id :
+      "${regex("^/subscriptions/[^/]+", each.value.scope)}${data.azurerm_role_definition.builtin[each.key].role_definition_id}"
+    )
+  )
   principal_id = element(compact([
     try(each.value.pim_eligible.principal_id, null),
     each.value.type == "Group" && each.value.display_name != null ? data.azuread_group.group[each.key].object_id : null,
