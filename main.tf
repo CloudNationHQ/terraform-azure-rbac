@@ -576,7 +576,7 @@ resource "azurerm_pim_eligible_role_assignment" "role" {
     if assignment.pim_eligible != null
   }
 
-  scope              = each.value.scope
+  scope = each.value.scope
   role_definition_id = (
     each.value.existing_role_definition == true ?
     (
