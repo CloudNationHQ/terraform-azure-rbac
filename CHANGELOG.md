@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.3](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.2...v2.4.3) (2025-12-19)
+
+
+### Bug Fixes
+
+* pim resource assignments ([#70](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/70)) ([99434fd](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/99434fdfdb3c23ccf71dd83522ce15c8298237c6))
+
 ## [2.4.2](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.1...v2.4.2) (2025-11-28)
 
 
