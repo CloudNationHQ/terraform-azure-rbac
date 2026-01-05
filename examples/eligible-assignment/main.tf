@@ -18,8 +18,7 @@ module "rg" {
 }
 
 module "rbac" {
-  source  = "cloudnationhq/rbac/azure"
-  version = "~> 2.0"
+  source = "../../"
 
   role_assignments = local.role_assignments
 }
