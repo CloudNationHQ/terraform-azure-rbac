@@ -97,6 +97,10 @@ The following outputs are exported:
 
 Description: n/a
 
+### <a name="output_role_assignment_object_ids"></a> [role\_assignment\_object\_ids](#output\_role\_assignment\_object\_ids)
+
+Description: n/a
+
 ### <a name="output_role_assignments"></a> [role\_assignments](#output\_role\_assignments)
 
 Description: n/a
