@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.5.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.3...v2.5.0) (2026-05-13)
+
+
+### Features
+
+* add role_object_id to outputs ([#73](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/73)) ([f40572c](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/f40572cea4f3af6d3f15e1c1ad38e169cbff61f9))
+* **deps:** bump github.com/ulikunitz/xz ([#61](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/61)) ([f3f2d00](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/f3f2d007903f43716a70f525a523a934edf1b6e5))
+
 ## [2.4.3](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.2...v2.4.3) (2025-12-19)
 
 
