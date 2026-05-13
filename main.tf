@@ -14,7 +14,7 @@ data "azuread_group" "group" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -88,7 +88,7 @@ data "azuread_service_principal" "sp" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -130,7 +130,7 @@ data "azuread_user" "user" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -174,7 +174,7 @@ data "azurerm_role_definition" "custom" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -216,7 +216,7 @@ data "azurerm_role_definition" "builtin" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -237,8 +237,7 @@ data "azurerm_role_definition" "builtin" {
     if assignment.existing_role_definition == false && !contains(try(keys(var.role_definitions), []), assignment.role)
   }
 
-  name  = each.value.role
-  scope = each.value.scope
+  name = each.value.role
 }
 
 resource "azurerm_role_assignment" "role" {
@@ -257,7 +256,7 @@ resource "azurerm_role_assignment" "role" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -308,7 +307,7 @@ resource "azurerm_role_assignment" "role_object_id" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -359,7 +358,7 @@ resource "azurerm_role_management_policy" "role" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -556,7 +555,7 @@ resource "azurerm_pim_eligible_role_assignment" "role" {
             security_enabled                       = try(principal.security_enabled, null)
             client_id                              = try(principal.client_id, null)
             object_id                              = lookup(principal, "object_id", null)
-            upn                                    = principal.type == "User" ? principal.upn : null
+            upn                                    = principal.type == "User" ? try(principal.upn, null) : null
             mail                                   = try(principal.mail, null)
             employee_id                            = try(principal.employee_id, null)
             role                                   = role_key
@@ -577,8 +576,29 @@ resource "azurerm_pim_eligible_role_assignment" "role" {
     if assignment.pim_eligible != null
   }
 
-  scope              = each.value.scope
-  role_definition_id = each.value.existing_role_definition == true ? data.azurerm_role_definition.custom[each.value.role].role_definition_id : contains(try(keys(var.role_definitions), []), each.value.role) ? azurerm_role_definition.custom[each.value.role].role_definition_id : data.azurerm_role_definition.builtin[each.key].role_definition_id
+  scope = each.value.scope
+  role_definition_id = (
+    each.value.existing_role_definition == true ?
+    (
+      # For existing role definitions
+      startswith(each.value.scope, "/providers/Microsoft.Management/managementGroups/") ?
+      data.azurerm_role_definition.custom[each.value.role].role_definition_id :
+      "${regex("^/subscriptions/[^/]+", each.value.scope)}${data.azurerm_role_definition.custom[each.value.role].role_definition_id}"
+    ) :
+    contains(try(keys(var.role_definitions), []), each.value.role) ?
+    (
+      # For custom role definitions
+      startswith(each.value.scope, "/providers/Microsoft.Management/managementGroups/") ?
+      azurerm_role_definition.custom[each.value.role].role_definition_id :
+      "${regex("^/subscriptions/[^/]+", each.value.scope)}${azurerm_role_definition.custom[each.value.role].role_definition_id}"
+    ) :
+    (
+      # For builtin role definitions
+      startswith(each.value.scope, "/providers/Microsoft.Management/managementGroups/") ?
+      data.azurerm_role_definition.builtin[each.key].role_definition_id :
+      "${regex("^/subscriptions/[^/]+", each.value.scope)}${data.azurerm_role_definition.builtin[each.key].role_definition_id}"
+    )
+  )
   principal_id = element(compact([
     try(each.value.pim_eligible.principal_id, null),
     each.value.type == "Group" && each.value.display_name != null ? data.azuread_group.group[each.key].object_id : null,

@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.4.3](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.2...v2.4.3) (2025-12-19)
+
+
+### Bug Fixes
+
+* pim resource assignments ([#70](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/70)) ([99434fd](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/99434fdfdb3c23ccf71dd83522ce15c8298237c6))
+
+## [2.4.2](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.1...v2.4.2) (2025-11-28)
+
+
+### Bug Fixes
+
+* remove scope from builtin azurerm_role_definition data block ([#65](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/65)) ([7906986](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/7906986e8bd412932d1c12e6ff3f950430563dd7))
+
+## [2.4.1](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.0...v2.4.1) (2025-11-10)
+
+
+### Bug Fixes
+
+* all upn references ([47c4e56](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/47c4e56f71635b53c4e54a6c7979f6bd859431e9))
+
 ## [2.4.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.3.1...v2.4.0) (2025-11-03)
 
 
