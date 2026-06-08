@@ -1,5 +1,34 @@
 # Changelog
 
+## [2.5.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.3...v2.5.0) (2026-05-13)
+
+
+### Features
+
+* add role_object_id to outputs ([#73](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/73)) ([f40572c](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/f40572cea4f3af6d3f15e1c1ad38e169cbff61f9))
+* **deps:** bump github.com/ulikunitz/xz ([#61](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/61)) ([f3f2d00](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/f3f2d007903f43716a70f525a523a934edf1b6e5))
+
+## [2.4.3](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.2...v2.4.3) (2025-12-19)
+
+
+### Bug Fixes
+
+* pim resource assignments ([#70](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/70)) ([99434fd](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/99434fdfdb3c23ccf71dd83522ce15c8298237c6))
+
+## [2.4.2](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.1...v2.4.2) (2025-11-28)
+
+
+### Bug Fixes
+
+* remove scope from builtin azurerm_role_definition data block ([#65](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/65)) ([7906986](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/7906986e8bd412932d1c12e6ff3f950430563dd7))
+
+## [2.4.1](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.0...v2.4.1) (2025-11-10)
+
+
+### Bug Fixes
+
+* all upn references ([47c4e56](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/47c4e56f71635b53c4e54a6c7979f6bd859431e9))
+
 ## [2.4.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.3.1...v2.4.0) (2025-11-03)
 
 
