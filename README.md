@@ -30,7 +30,7 @@ End-to-end testing is not conducted on these modules, as they are individual com
 - data lookup of group or service-principal (app registration) based on display name in Entra ID.
 - data lookup of user based on upn in Entra ID.
 - data lookup for existing custom role definitions and assigning these.
-- optional provisioning of Azure PIM role management policies and eligible role assignments per role and scope, including group approvers resolved by display name.
+- does not manage PIM eligible assignments or role management policies — use [terraform-azure-pim](https://github.com/CloudNationHQ/terraform-azure-pim) for those.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -55,16 +55,11 @@ The following providers are used by this module:
 
 The following resources are used by this module:
 
-- [azurerm_pim_eligible_role_assignment.role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/pim_eligible_role_assignment) (resource)
-- [azurerm_role_assignment.role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) (resource)
-- [azurerm_role_assignment.role_object_id](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) (resource)
+- [azurerm_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) (resource)
 - [azurerm_role_definition.custom](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) (resource)
-- [azurerm_role_management_policy.role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_management_policy) (resource)
-- [azuread_group.group](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) (data source)
-- [azuread_group.primary_approver](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) (data source)
-- [azuread_service_principal.sp](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) (data source)
-- [azuread_user.user](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) (data source)
-- [azurerm_role_definition.builtin](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) (data source)
+- [azuread_group.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) (data source)
+- [azuread_service_principal.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) (data source)
+- [azuread_user.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) (data source)
 - [azurerm_role_definition.custom](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) (data source)
 
 ## Required Inputs
@@ -73,9 +68,38 @@ The following input variables are required:
 
 ### <a name="input_role_assignments"></a> [role\_assignments](#input\_role\_assignments)
 
-Description: n/a
+Description: Contains all role assignment configuration
 
-Type: `any`
+Type:
+
+```hcl
+map(object({
+    type                       = string
+    display_name               = optional(string)
+    upn                        = optional(string)
+    object_id                  = optional(string)
+    include_transitive_members = optional(bool)
+    mail_enabled               = optional(bool)
+    mail_nickname              = optional(string)
+    security_enabled           = optional(bool)
+    client_id                  = optional(string)
+    mail                       = optional(string)
+    employee_id                = optional(string)
+    roles = map(object({
+      existing_role_definition               = optional(bool, false)
+      role_definition_id                     = optional(string)
+      description                            = optional(string)
+      skip_service_principal_aad_check       = optional(bool)
+      condition                              = optional(string)
+      condition_version                      = optional(string)
+      delegated_managed_identity_resource_id = optional(string)
+      scopes = map(object({
+        id            = string
+        assignment_id = optional(string)
+      }))
+    }))
+  }))
+```
 
 ## Optional Inputs
 
@@ -83,9 +107,25 @@ The following input variables are optional (have default values):
 
 ### <a name="input_role_definitions"></a> [role\_definitions](#input\_role\_definitions)
 
-Description: n/a
+Description: Contains all custom role definition configuration
 
-Type: `any`
+Type:
+
+```hcl
+map(object({
+    name               = optional(string)
+    scope              = string
+    role_definition_id = optional(string)
+    description        = optional(string)
+    assignable_scopes  = list(string)
+    permissions = optional(object({
+      actions          = optional(list(string))
+      not_actions      = optional(list(string))
+      data_actions     = optional(list(string))
+      not_data_actions = optional(list(string))
+    }))
+  }))
+```
 
 Default: `{}`
 
@@ -93,19 +133,11 @@ Default: `{}`
 
 The following outputs are exported:
 
-### <a name="output_pim_eligible_role_assignments"></a> [pim\_eligible\_role\_assignments](#output\_pim\_eligible\_role\_assignments)
-
-Description: n/a
-
 ### <a name="output_role_assignments"></a> [role\_assignments](#output\_role\_assignments)
 
 Description: n/a
 
 ### <a name="output_role_definitions"></a> [role\_definitions](#output\_role\_definitions)
-
-Description: n/a
-
-### <a name="output_role_management_policies"></a> [role\_management\_policies](#output\_role\_management\_policies)
 
 Description: n/a
 <!-- END_TF_DOCS -->
