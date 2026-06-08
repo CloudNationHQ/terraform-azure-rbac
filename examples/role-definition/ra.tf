@@ -14,7 +14,7 @@ locals {
             rg = { id = module.rg.groups.main.id }
           }
         }
-        
+
         "Custom Role 2" = {
           description              = "This is an assignment for a custom role that exists"
           existing_role_definition = true
@@ -24,7 +24,7 @@ locals {
         }
         "Reader" = {
           scopes = {
-            rg      = { id = module.rg.groups.main.id }
+            rg = { id = module.rg.groups.main.id }
             sa = { id = module.storage.account.id }
           }
         }

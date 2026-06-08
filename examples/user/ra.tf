@@ -15,7 +15,7 @@ locals {
         }
         "Reader" = {
           scopes = {
-            rg      = { id = module.rg.groups.main.id }
+            rg = { id = module.rg.groups.main.id }
             sa = { id = module.storage.account.id }
           }
         }
