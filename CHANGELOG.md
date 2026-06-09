@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.5.0...v3.0.0) (2026-06-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* major refactor, added type definitions ([#78](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/78))
+
+### Features
+
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#76](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/76)) ([d85997a](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/d85997ae930ff00106b955d2ed2b58eff8ac5687))
+* major refactor, added type definitions ([#78](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/78)) ([7e67ad1](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/7e67ad1a373cdb63a79363fdae525118beb99c35))
+
 ## [2.5.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.4.3...v2.5.0) (2026-05-13)
 
 
