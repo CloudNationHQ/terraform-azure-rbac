@@ -6,18 +6,18 @@ locals {
       roles = {
         "Key Vault Secrets User" = {
           scopes = {
-            rg-main = module.rg.groups.main.id
+            rg = { id = module.rg.groups.main.id }
           }
         }
         "Reader" = {
           scopes = {
-            rg-main      = module.rg.groups.main.id
-            storage-main = module.storage.account.id
+            rg = { id = module.rg.groups.main.id }
+            sa = { id = module.storage.account.id }
           }
         }
         "Storage Blob Data Contributor" = {
           scopes = {
-            storage-main = module.storage.account.id
+            sa = { id = module.storage.account.id }
           }
         }
       }

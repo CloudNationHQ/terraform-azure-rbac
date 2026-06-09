@@ -19,18 +19,18 @@ module "rg" {
 
 module "storage" {
   source  = "cloudnationhq/sa/azure"
-  version = "~> 2.0"
+  version = "~> 4.0"
 
   storage = {
-    name           = module.naming.storage_account.name_unique
-    location       = module.rg.groups.main.location
-    resource_group = module.rg.groups.main.name
+    name                = module.naming.storage_account.name_unique
+    location            = module.rg.groups.main.location
+    resource_group_name = module.rg.groups.main.name
   }
 }
 
 module "rbac" {
   source  = "cloudnationhq/rbac/azure"
-  version = "~> 2.0"
+  version = "~> 3.0"
 
   role_assignments = local.role_assignments
 }
