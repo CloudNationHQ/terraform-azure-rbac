@@ -84,7 +84,7 @@ resource "azurerm_role_definition" "custom" {
   assignable_scopes = each.value.assignable_scopes
 
   dynamic "permissions" {
-    for_each = each.value.permissions != null ? { default = each.value.permissions } : {}
+    for_each = each.value.permissions != null ? { "this" = each.value.permissions } : {}
     content {
       actions          = permissions.value.actions
       not_actions      = permissions.value.not_actions

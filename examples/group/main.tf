@@ -7,7 +7,7 @@ module "naming" {
 
 module "rg" {
   source  = "cloudnationhq/rg/azure"
-  version = "~> 2.0"
+  version = "~> 3.0"
 
   groups = {
     main = {
@@ -19,7 +19,7 @@ module "rg" {
 
 module "storage" {
   source  = "cloudnationhq/sa/azure"
-  version = "~> 4.0"
+  version = "~> 5.0"
 
   storage = {
     name                = module.naming.storage_account.name_unique
@@ -30,7 +30,7 @@ module "storage" {
 
 module "rbac" {
   source  = "cloudnationhq/rbac/azure"
-  version = "~> 3.0"
+  version = "~> 4.0"
 
   role_assignments = local.role_assignments
 }
