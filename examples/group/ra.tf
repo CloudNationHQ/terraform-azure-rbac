@@ -1,8 +1,8 @@
 locals {
   role_assignments = {
-    "Development" = {
-      display_name = "Development"
-      type         = "Group"
+    development = {
+      object_id = module.group.groups["development"].object_id
+      type      = "Group"
       roles = {
         "Key Vault Secrets User" = {
           scopes = {

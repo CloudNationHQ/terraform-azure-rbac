@@ -28,6 +28,18 @@ module "kv" {
   }
 }
 
+module "group" {
+  source  = "cloudnationhq/groups/azuread"
+  version = "~> 1.0"
+
+  groups = {
+    development = {
+      display_name     = "Development"
+      security_enabled = true
+    }
+  }
+}
+
 module "rbac" {
   source  = "cloudnationhq/rbac/azure"
   version = "~> 4.0"

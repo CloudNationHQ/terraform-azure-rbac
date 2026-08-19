@@ -1,12 +1,8 @@
-data "azuread_domains" "this" {
-  only_initial = true
-}
-
 locals {
   role_assignments = {
-    "john doe" = {
-      upn  = "john.doe@${data.azuread_domains.this.domains[0].domain_name}"
-      type = "User"
+    john_doe = {
+      object_id = azuread_user.this.object_id
+      type      = "User"
       roles = {
         "Key Vault Secrets User" = {
           scopes = {

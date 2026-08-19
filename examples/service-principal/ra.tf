@@ -1,8 +1,8 @@
 locals {
   role_assignments = {
-    "TerraformDeploy" = {
-      display_name = "TerraformDeploy"
-      type         = "ServicePrincipal"
+    app_demo = {
+      object_id = module.app.service_principal.object_id
+      type      = "ServicePrincipal"
       roles = {
         "Key Vault Secrets User" = {
           scopes = {

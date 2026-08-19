@@ -28,10 +28,20 @@ module "kv" {
   }
 }
 
+module "app" {
+  source  = "cloudnationhq/aadapp/azure"
+  version = "~> 1.0"
+
+  registration = {
+    display_name = "app-demo-dev"
+
+    service_principal = {}
+  }
+}
+
 module "rbac" {
   source  = "cloudnationhq/rbac/azure"
   version = "~> 4.0"
-
 
   role_assignments = local.role_assignments
 }

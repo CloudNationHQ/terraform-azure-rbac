@@ -28,10 +28,20 @@ module "kv" {
   }
 }
 
+data "azuread_domains" "this" {
+  only_initial = true
+}
+
+resource "azuread_user" "this" {
+  display_name          = "John Doe"
+  user_principal_name   = "john.doe@${data.azuread_domains.this.domains[0].domain_name}"
+  password              = "P@ssw0rd-${module.naming.resource_group.name_unique}"
+  force_password_change = false
+}
+
 module "rbac" {
   source  = "cloudnationhq/rbac/azure"
   version = "~> 4.0"
-
 
   role_assignments = local.role_assignments
   role_definitions = local.role_definitions
