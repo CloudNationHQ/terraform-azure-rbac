@@ -32,11 +32,18 @@ data "azuread_domains" "this" {
   only_initial = true
 }
 
-resource "azuread_user" "this" {
-  display_name        = "John Doe"
-  user_principal_name = "john.doe@${data.azuread_domains.this.domains[0].domain_name}"
-  password            = "P@ssw0rd-${module.naming.resource_group.name_unique}"
-  force_password_change = false
+module "users" {
+  source  = "cloudnationhq/users/azuread"
+  version = "~> 2.0"
+
+  users = {
+    john_doe = {
+      display_name          = "John Doe"
+      user_principal_name   = "john.doe@${data.azuread_domains.this.domains[0].domain_name}"
+      password              = "P@ssw0rd-${module.naming.resource_group.name_unique}"
+      force_password_change = false
+    }
+  }
 }
 
 module "rbac" {

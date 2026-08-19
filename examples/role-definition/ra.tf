@@ -1,7 +1,7 @@
 locals {
   role_assignments = {
     john_doe = {
-      object_id = azuread_user.this.object_id
+      object_id = module.users.users["john_doe"].object_id
       type      = "User"
       roles = {
         "Custom Role 1" = {
