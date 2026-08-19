@@ -29,7 +29,7 @@ module "kv" {
 }
 
 module "app" {
-  source  = "cloudnationhq/aadapp/azure"
+  source  = "cloudnationhq/app/azuread"
   version = "~> 1.0"
 
   registration = {
