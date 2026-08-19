@@ -10,8 +10,8 @@ locals {
             rg = { id = module.rg.groups.main.id }
           }
         }
-        "Custom Role 2" = {
-          description              = "This is an assignment for a custom role that exists"
+        "Contributor" = {
+          description              = "This is an assignment for an existing built-in role definition"
           existing_role_definition = true
           scopes = {
             kv = { id = module.kv.vault.id }
