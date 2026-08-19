@@ -19,13 +19,13 @@ locals {
           description              = "This is an assignment for a custom role that exists"
           existing_role_definition = true
           scopes = {
-            sa = { id = module.storage.account.id }
+            kv = { id = module.kv.vault.id }
           }
         }
         "Reader" = {
           scopes = {
             rg = { id = module.rg.groups.main.id }
-            sa = { id = module.storage.account.id }
+            kv = { id = module.kv.vault.id }
           }
         }
       }

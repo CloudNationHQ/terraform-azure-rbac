@@ -10,18 +10,18 @@ locals {
       roles = {
         "Key Vault Secrets User" = {
           scopes = {
-            rg = { id = module.rg.groups.main.id }
+            kv = { id = module.kv.vault.id }
           }
         }
         "Reader" = {
           scopes = {
             rg = { id = module.rg.groups.main.id }
-            sa = { id = module.storage.account.id }
+            kv = { id = module.kv.vault.id }
           }
         }
-        "Storage Blob Data Contributor" = {
+        "Key Vault Reader" = {
           scopes = {
-            sa = { id = module.storage.account.id }
+            kv = { id = module.kv.vault.id }
           }
         }
       }

@@ -17,12 +17,12 @@ module "rg" {
   }
 }
 
-module "storage" {
-  source  = "cloudnationhq/sa/azure"
-  version = "~> 5.0"
+module "kv" {
+  source  = "cloudnationhq/kv/azure"
+  version = "~> 6.0"
 
-  storage = {
-    name                = module.naming.storage_account.name_unique
+  vault = {
+    name                = module.naming.key_vault.name_unique
     location            = module.rg.groups.main.location
     resource_group_name = module.rg.groups.main.name
   }
