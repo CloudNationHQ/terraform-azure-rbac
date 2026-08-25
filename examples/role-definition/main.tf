@@ -36,12 +36,12 @@ module "users" {
   source  = "cloudnationhq/users/azuread"
   version = "~> 2.0"
 
+  generate_password = true
+
   users = {
-    john_doe = {
-      display_name          = "John Doe"
-      user_principal_name   = "john.doe@${data.azuread_domains.this.domains[0].domain_name}"
-      password              = "P@ssw0rd-${module.naming.resource_group.name_unique}"
-      force_password_change = false
+    jane_doe = {
+      display_name        = "Jane Doe"
+      user_principal_name = "jane.doe@${data.azuread_domains.this.domains[0].domain_name}"
     }
   }
 }
@@ -59,8 +59,8 @@ locals {
   }
 
   role_assignments = {
-    john_doe = {
-      object_id = module.users.users["john_doe"].object_id
+    jane_doe = {
+      object_id = module.users.users["jane_doe"].object_id
       type      = "User"
       roles = {
         "Custom Role 1" = {

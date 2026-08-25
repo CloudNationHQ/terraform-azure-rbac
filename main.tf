@@ -56,7 +56,7 @@ resource "azurerm_role_assignment" "this" {
   name                 = each.value.assignment_id
   scope                = each.value.scope
   role_definition_name = !each.value.existing_role_definition ? coalesce(try(var.role_definitions[each.value.role].name, null), each.value.role) : null
-  role_definition_id   = each.value.existing_role_definition ? data.azurerm_role_definition.this[each.key].role_definition_id : null
+  role_definition_id   = each.value.existing_role_definition ? data.azurerm_role_definition.this[each.key].id : null
   principal_id = each.value.display_name != null || each.value.upn != null ? (
     each.value.type == "Group" ? data.azuread_group.this[each.key].object_id :
     each.value.type == "User" ? data.azuread_user.this[each.key].object_id :
