@@ -47,9 +47,9 @@ The following requirements are needed by this module:
 
 The following providers are used by this module:
 
-- <a name="provider_azuread"></a> [azuread](#provider\_azuread) (3.9.0)
+- <a name="provider_azuread"></a> [azuread](#provider\_azuread) (~> 3.0)
 
-- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (5.1.0)
+- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 5.0)
 
 ## Resources
 
