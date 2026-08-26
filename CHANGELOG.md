@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.0.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v3.0.0...v4.0.0) (2026-08-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to azurerm v5 and align with CN module standards ([#82](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/82))
+
+### Features
+
+* **deps:** bump golang.org/x/crypto ([#79](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/79)) ([bf65263](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/bf652635ff91d13e17da4bfdd8323762f292db59))
+* upgrade to azurerm v5 and align with CN module standards ([#82](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/82)) ([937dcbe](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/937dcbeec73cfd94715d979e264351545ec9dd08))
+
 ## [3.0.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v2.5.0...v3.0.0) (2026-06-09)
 
 
