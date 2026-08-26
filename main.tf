@@ -37,7 +37,7 @@ data "azuread_user" "this" {
   employee_id         = each.value.employee_id
 }
 
-data "azurerm_role_definition" "custom" {
+data "azurerm_role_definition" "this" {
   for_each = {
     for k, v in local.assignments : k => v
     if v.existing_role_definition == true
@@ -56,7 +56,7 @@ resource "azurerm_role_assignment" "this" {
   name                 = each.value.assignment_id
   scope                = each.value.scope
   role_definition_name = !each.value.existing_role_definition ? coalesce(try(var.role_definitions[each.value.role].name, null), each.value.role) : null
-  role_definition_id   = each.value.existing_role_definition ? data.azurerm_role_definition.custom[each.key].role_definition_id : null
+  role_definition_id   = each.value.existing_role_definition ? data.azurerm_role_definition.this[each.key].id : null
   principal_id = each.value.display_name != null || each.value.upn != null ? (
     each.value.type == "Group" ? data.azuread_group.this[each.key].object_id :
     each.value.type == "User" ? data.azuread_user.this[each.key].object_id :
@@ -69,11 +69,11 @@ resource "azurerm_role_assignment" "this" {
   condition_version                      = each.value.condition_version
   delegated_managed_identity_resource_id = each.value.delegated_managed_identity_resource_id
 
-  depends_on = [azurerm_role_definition.custom]
+  depends_on = [azurerm_role_definition.this]
 }
 
 # role definitions
-resource "azurerm_role_definition" "custom" {
+resource "azurerm_role_definition" "this" {
   for_each = var.role_definitions
 
   name               = coalesce(each.value.name, each.key)
@@ -84,7 +84,7 @@ resource "azurerm_role_definition" "custom" {
   assignable_scopes = each.value.assignable_scopes
 
   dynamic "permissions" {
-    for_each = each.value.permissions != null ? { default = each.value.permissions } : {}
+    for_each = each.value.permissions != null ? { "this" = each.value.permissions } : {}
     content {
       actions          = permissions.value.actions
       not_actions      = permissions.value.not_actions

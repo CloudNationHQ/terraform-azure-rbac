@@ -3,5 +3,5 @@ output "role_assignments" {
 }
 
 output "role_definitions" {
-  value = azurerm_role_definition.custom
+  value = azurerm_role_definition.this
 }
