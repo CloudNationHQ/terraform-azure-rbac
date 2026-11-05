@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v4.0.0...v4.1.0) (2026-11-05)
+
+
+### Features
+
+* **deps:** bump github.com/klauspost/compress ([#83](https://github.com/CloudNationHQ/terraform-azure-rbac/issues/83)) ([04c4053](https://github.com/CloudNationHQ/terraform-azure-rbac/commit/04c40537449160be6ec3890744010dae6296959b))
+
 ## [4.0.0](https://github.com/CloudNationHQ/terraform-azure-rbac/compare/v3.0.0...v4.0.0) (2026-08-26)
 
 
